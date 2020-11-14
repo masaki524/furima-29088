@@ -44,7 +44,6 @@ Things you may want to cover:
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
 | detail             | text       | null: false                    |
-| address            | string     | null: false                    |
 | price              | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
