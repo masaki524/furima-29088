@@ -10,7 +10,10 @@ class Item < ApplicationRecord
   belongs_to :shipping_date
   belongs_to :shipping_charge
   belongs_to :status
+
   belongs_to :user
+  has_one_attached :image
+
 
   #ジャンルの選択が「--」の時は保存できないようにする
   validates :category_id,       numericality: { other_than: 1 } 
