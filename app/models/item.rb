@@ -1,13 +1,15 @@
 class Item < ApplicationRecord
   #validateの設定
-  validates :name,   presence: true, length: { maximum: 40 }
-  validates :detail, presence: true, length: { maximum: 1000 }
-  validates :price,  presence: true, numericality: { 
-              greater_than_or_equal_to: 300,
-              less_than_or_equal_to: 9999999
-            },
-            format: { with: /\A[0-9]+\z/}
-  validates :image,  presence: true
+  with_options presence: true do
+    validates :name, length: { maximum: 40 }
+    validates :detail, length: { maximum: 1000 }
+    validates :price, numericality: { 
+                greater_than_or_equal_to: 300,
+                less_than_or_equal_to: 9999999
+              },
+              format: { with: /\A[0-9]+\z/}
+    validates :image
+  end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

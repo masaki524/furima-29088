@@ -63,10 +63,22 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
 
+      it "categoryが空だと登録できない" do
+        @item.category_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category is not a number")
+      end
+
       it "prefecture = 1だと登録できない" do
         @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+
+      it "prefectureが空だと登録できない" do
+        @item.prefecture_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture is not a number")
       end
 
       it "shipping_charge = 1だと登録できない" do
@@ -75,10 +87,22 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
       end
 
+      it "shipping_chargeが空だと登録できない" do
+        @item.shipping_charge_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping charge is not a number")
+      end
+
       it "shipping_date = 1だと登録できない" do
         @item.shipping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping date must be other than 1")
+      end
+
+      it "shipping_dateが空だと登録できない" do
+        @item.shipping_date_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping date is not a number")
       end
 
       it "status = 1だと登録できない" do
@@ -86,6 +110,13 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
+
+      it "status空だと登録できない" do
+        @item.status_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status is not a number")
+      end
+
     end
   end
 end
