@@ -57,34 +57,34 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
 
-      it "categoryが選択されていないと登録できない" do
-        @item.category = nil
+      it "category = 1だと登録できない" do
+        @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category is not a number")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
 
-      it "prefectureが選択されていないと登録できない" do
-        @item.prefecture = nil
+      it "prefecture = 1だと登録できない" do
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture is not a number")
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
 
-      it "shipping_chargeが空だと登録できない" do
-        @item.shipping_charge = nil
+      it "shipping_charge = 1だと登録できない" do
+        @item.shipping_charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge is not a number")
+        expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
       end
 
-      it "shipping_dateが空だと登録できない" do
-        @item.shipping_date = nil
+      it "shipping_date = 1だと登録できない" do
+        @item.shipping_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping date is not a number")
+        expect(@item.errors.full_messages).to include("Shipping date must be other than 1")
       end
 
-      it "statusが空だと登録できない" do
-        @item.status = nil
+      it "status = 1だと登録できない" do
+        @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status is not a number")
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
     end
   end
