@@ -5,13 +5,17 @@ class PurchaseRecode < ApplicationRecord
 
   with_options presence: true do
     validates :post_num , format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
-    validates :prefecture_id ,numericality: { other_than: 0}
     validates :banch 
     validates :city  
     validates :phone_num , format: {with: /\A0[5789]0\d{4}\d{4}\z/}
   end
-
   validates :building_name
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefecture
+
+  validates :prefecture_id ,numericality: { other_than: 1}
+
 
   def save
     # 購入者情報を保存
