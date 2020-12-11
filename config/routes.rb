@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'users/sign_up', to: 'devise/registrations#new'
 
   root to: 'items#index'
-  resources :items
-  resources :orders
+  resources :items do
+    resources :orders 
+  end
 end
