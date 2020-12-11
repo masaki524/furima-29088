@@ -21,6 +21,6 @@ class PurchaseRecode < ApplicationRecord
     # 配送先住所の情報を保存
     Shipping_address.create(post_num: post_num, prefecture_id: prefecture_id, city: city, banch: banch, phone_num: phone_num, building_name: building_name, user_id: user.id)
     # クレジット情報の保存
-    Purchase_recode.create(token: token, user_id: user.id)
+    Order.create(token: token, user_id: user.id)
   end
 end
