@@ -69,7 +69,7 @@ Things you may want to cover:
 | banch           | string     | null: false                    |
 | phone_num       | string     | null: false                    |
 | building_name   | string     |                                |
-| purchase_recode | references | null: false, foreign_key: true |
+| order | references | null: false, foreign_key: true |
 
 ### Association
 
