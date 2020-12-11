@@ -1,6 +1,6 @@
 class PurchaseRecode < ApplicationRecord
   include ActiveModel::Model
-  attr_accessor :post_num, :prefecture_id, :city, :banch, :phone_num, :building_name, :token
+  attr_accessor :post_num, :prefecture_id, :city, :banch, :phone_num, :building_name
 
 
   with_options presence: true do
@@ -9,13 +9,9 @@ class PurchaseRecode < ApplicationRecord
     validates :banch 
     validates :city  
     validates :phone_num , format: {with: /\A0[5789]0\d{4}\d{4}\z/}
-    validates :token
   end
 
   validates :building_name
-
-  belongs_to :user
-  belongs_to :item
 
   def save
     # 配送先住所の情報を保存
