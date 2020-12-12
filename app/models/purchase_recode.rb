@@ -1,6 +1,6 @@
 class PurchaseRecode < ApplicationRecord
   include ActiveModel::Model
-  attr_accessor :post_num, :prefecture_id, :city, :banch, :phone_num, :building_name
+  attr_accessor :user_id, :item_id, :post_num, :prefecture_id, :city, :banch, :phone_num, :building_name, :order_id
 
 
   with_options presence: true do
@@ -20,8 +20,8 @@ class PurchaseRecode < ApplicationRecord
 
   def save
     # 購入者情報を保存
-    Order.create(user_id: user.id, item_id: item.id)
+    Order.create(user_id: user_id, item_id: item_id)
     # 配送先住所の情報を保存
-    Shipping_address.create(post_num: post_num, prefecture_id: prefecture_id, city: city, banch: banch, phone_num: phone_num, building_name: building_name, order_id: order_id)
+    ShippingAddresess.create(post_num: post_num, prefecture_id: prefecture_id, city: city, banch: banch, phone_num: phone_num, building_name: building_name, order_id: order_id)
   end
 end
