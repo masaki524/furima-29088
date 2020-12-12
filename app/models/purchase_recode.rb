@@ -7,9 +7,10 @@ class PurchaseRecode < ApplicationRecord
     validates :post_num , format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
     validates :banch 
     validates :city  
+    validates :building_name
     validates :phone_num , format: {with: /\A0[5789]0\d{4}\d{4}\z/}
   end
-  validates :building_name
+
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
