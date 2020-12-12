@@ -6,14 +6,13 @@ class OrdersController < ApplicationController
 
   def create
     @purchase_recode = PurchaseRecode.new(order_params)
-    @purchase_recode.save
-    redirect_to action: :index
-     #if @purchase_recode.valid?
-     #  @purchase_recode.save
-     #  redirect_to action: :index
-     #else
-     #  render action: :order
-     #end
+    if @purchase_recode.valid?
+      @purchase_recode.save
+      redirect_to root_path
+    else
+      @item = Item.find_by(id: params[:item_id])
+      render :index
+    end
   end
  
   private
