@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
   def create
     @purchase_recode = PurchaseRecode.new(order_params)
     if @purchase_recode.valid?
+      binding.pry
       @purchase_recode.save
       redirect_to root_path
     else
