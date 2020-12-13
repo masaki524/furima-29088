@@ -1,9 +1,13 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @item = Item.find_by(id: params[:item_id])
-    @purchase_recode = PurchaseRecode.new
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    else
+      @purchase_recode = PurchaseRecode.new
+    end
   end
 
   def create
