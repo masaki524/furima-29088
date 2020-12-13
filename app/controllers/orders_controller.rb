@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @item = Item.find_by(id: params[:item_id])
     @purchase_recode = PurchaseRecode.new
