@@ -19,8 +19,8 @@ class PurchaseRecode < ApplicationRecord
 
   def save
     # 購入者情報を保存
-    Order.create(user_id: user_id, item_id: item_id)
+    order = Order.create(user_id: user_id, item_id: item_id)
     # 配送先住所の情報を保存
-    ShippingAddress.create(post_num: post_num, prefecture_id: prefecture_id, city: city, banch: banch, phone_num: phone_num, building_name: building_name, order_id: order_id)
+    ShippingAddress.create(post_num: post_num, prefecture_id: prefecture_id, city: city, banch: banch, phone_num: phone_num, building_name: building_name, order_id: order.id)
   end
 end
