@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @purchase_recode = PurchaseRecode.new(order_params)
     if @purchase_recode.valid?
       pay_item
       @purchase_recode.save
