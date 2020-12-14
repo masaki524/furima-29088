@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :find_item, only: [:index, :create]
 
   def index
-    if current_user.id == @item.user_id
+    if (current_user.id == @item.user_id) || (@item.order.present?)
       redirect_to root_path
     else
       @purchase_recode = PurchaseRecode.new
