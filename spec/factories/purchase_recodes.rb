@@ -7,5 +7,6 @@ FactoryBot.define do
     banch {"1-11-1"}
     phone_num {"09012341234"}
     building_name {"test"}
+    token {"tok_abcdefghijk00000000000000000"}
   end
 end

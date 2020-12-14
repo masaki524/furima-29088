@@ -59,5 +59,11 @@ RSpec.describe PurchaseRecode, type: :model do
       @purchase_recode.valid?
       expect(@purchase_recode.errors.full_messages).to include("Phone num is invalid")
     end
+
+    it "tokenが空では登録できないこと" do
+      @purchase_recode.token = nil
+      @purchase_recode.valid?
+      expect(@purchase_recode.errors.full_messages).to include("Token can't be blank")
+    end
   end
 end
