@@ -132,6 +132,11 @@
           <%= link_to item_path(item.id), method: :get do %>
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" %>
+              <% if item.order.present? %>
+                <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                </div>
+              <% end %>
             </div>
 
             <div class='item-info'>
@@ -150,15 +155,8 @@
         </li>
       <% end %>
 
-            <%# 商品が売れていればsold outを表示しましょう %>
-              <%#<div class='sold-out'>
-                <span>Sold Out!!</span>
-              </div>
-            <%# //商品が売れていればsold outを表示しましょう %>
-
     <% else %>
       <%# 商品がない場合のダミー %>
-      <%# 商品がある場合は表示されないようにしましょう %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
@@ -176,10 +174,8 @@
         </div>
         <% end %>
       </li>
-      <%# //商品がある場合は表示されないようにしましょう %>
       <%# /商品がない場合のダミー %>
     <% end %>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
     </ul>
   </div>
   <%# /商品一覧 %>

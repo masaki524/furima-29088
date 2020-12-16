@@ -31,4 +31,6 @@ class Item < ApplicationRecord
     validates :status_id
   end
 
+  has_one :order
+
 end
