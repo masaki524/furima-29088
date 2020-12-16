@@ -7,7 +7,7 @@ class PurchaseRecode < ApplicationRecord
     validates :post_num , format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
     validates :banch 
     validates :city
-    validates :phone_num , format: {with: /\A0[5789]0\d{4}\d{4}\z/}
+    validates :phone_num , format: {with: /\A[0-9]{11}\z/}
     validates :token
     validates :item_id
     validates :user_id
