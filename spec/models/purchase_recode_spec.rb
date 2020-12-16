@@ -61,6 +61,12 @@ RSpec.describe PurchaseRecode, type: :model do
         expect(@purchase_recode.errors.full_messages).to include("Phone num is invalid")
       end
 
+      it '電話番号は11桁以内でないと保存できない' do
+        @purchase_recode.phone_num = '090111122222'
+        @purchase_recode.valid?
+        expect(@purchase_recode.errors.full_messages).to include("Phone num is invalid")
+      end
+
       it "tokenが空では登録できないこと" do
         @purchase_recode.token = nil
         @purchase_recode.valid?
